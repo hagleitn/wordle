@@ -1,5 +1,9 @@
+#!/usr/bin/env python3
+
 import random
 import sys
+
+if sys.version_info[0] != 3: sys.exit("Requires python 3.") 
 
 __words = []
 __answers = []
@@ -193,17 +197,9 @@ def cheat():
             l = filter_list(l, inp, word)
 
 init()
-
-try:
-    assert (sys.version_info[0] == 3), "Run with python version 3. Usage: python3 wordle.py"
-
-except Exception as e:
-    print (e)
-    sys.exit(1)
-
-if sys.argv[0] == 'play_wordle.py':
+if 'play_wordle' in sys.argv[0]:
     play()
-elif sys.argv[0] == 'test_wordle.py':
+elif 'test_wordle' in sys.argv[0]:
     test()
 else:
     cheat()
