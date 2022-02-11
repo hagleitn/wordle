@@ -14,16 +14,12 @@ def frequencies(lines):
     count = 0
 
     for l in lines:
-        count = count + 5
         for c in l:
             if c not in frequency:
                 frequency[c] = 0
             frequency[c] = frequency[c] + 1
 
-    norm_frequency = {}
-    for k in frequency:
-        norm_frequency[k] = frequency[k] / count
-    return norm_frequency
+    return frequency
 
 def score_freq_sum(word, frequency):
     sum = 0
@@ -83,7 +79,7 @@ def generate_guess(l):
 
     for w in l:
         score = score_freq_sum(w,f)
-        if score >= max_score:
+        if score > max_score:
             max_score = score
             max_word = w
 
